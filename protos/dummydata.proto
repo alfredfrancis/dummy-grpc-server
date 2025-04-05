@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package dummydata;
+
+option go_package = "github.com/alfredfrancis/dummy-grpc-server/dummydata";
+
+// Service definition
+service DummyDataService {
+  // Get dummy data with authentication
+  rpc GetDummyData (DummyDataRequest) returns (DummyDataResponse) {}
+  
+  // Stream dummy data with authentication
+  rpc StreamDummyData (DummyDataRequest) returns (stream DummyDataResponse) {}
+}
+
+// Request message
+message DummyDataRequest {
+  string request_id = 1;
+}
+
+// Response message with dummy data
+message DummyDataResponse {
+  string id = 1;
+  string name = 2;
+  int32 value = 3;
+  string description = 4;
+  repeated string tags = 5;
+  Timestamp created_at = 6;
+}
+
+// Timestamp message
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
