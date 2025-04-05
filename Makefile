@@ -1,19 +1,23 @@
-build_proto:
-	protoc --proto_path=protos \
-	--go_out=dummydata \
-	--go-grpc_out=dummydata \
-	--go_opt=module=github.com/alfredfrancis/dummy-grpc-server/dummydata \
-	--go-grpc_opt=module=github.com/alfredfrancis/dummy-grpc-server/dummydata \
-	protos/dummydata.proto
+.PHONY: all proto build test docker-build docker-run
+
+all: proto build test
+
+proto:
+	mkdir -p pb
+	protoc --go_out=pb --go-grpc_out=pb \
+	--go_opt=module=github.com/alfredfrancis/dummy-grpc-server/pb \
+	--go-grpc_opt=module=github.com/alfredfrancis/dummy-grpc-server/pb \
+	api/proto/dummydata.proto 
 
 build:
-	docker build -t grpc-dummy-server .
+	go build -o bin/server cmd/server/main.go
 
-run:
-	docker run -d -p 50051:50051 grpc-dummy-server
+test:
+	go test -v ./...
 
-req:
-	grpcurl -plaintext -d '{"requestId": "bilfa-red"}' 127.0.0.1:50051 dummydata.DummyDataService.GetDummyData
+docker-build:
+	docker build -t dummy-grpc-server .
 
-steaming-req:
-	grpcurl -plaintext -d '{"requestId": "alfa-red"}' 127.0.0.1:50051 dummydata.DummyDataService.StreamDummyData
+docker-run:
+	docker rm -f dummy-grpc-server || true
+	docker run -d  -p 50051:50051 --name dummy-grpc-server dummy-grpc-server

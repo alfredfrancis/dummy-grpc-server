@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: dummydata.proto
+// source: api/proto/dummydata.proto
 
-package dummydata
+package pb
 
 import (
 	context "context"
@@ -167,5 +167,5 @@ var DummyDataService_ServiceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 	},
-	Metadata: "dummydata.proto",
+	Metadata: "api/proto/dummydata.proto",
 }

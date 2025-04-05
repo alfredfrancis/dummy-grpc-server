@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.3
-// source: dummydata.proto
+// source: api/proto/dummydata.proto
 
-package dummydata
+package pb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -31,7 +31,7 @@ type DummyDataRequest struct {
 
 func (x *DummyDataRequest) Reset() {
 	*x = DummyDataRequest{}
-	mi := &file_dummydata_proto_msgTypes[0]
+	mi := &file_api_proto_dummydata_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *DummyDataRequest) String() string {
 func (*DummyDataRequest) ProtoMessage() {}
 
 func (x *DummyDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_dummydata_proto_msgTypes[0]
+	mi := &file_api_proto_dummydata_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *DummyDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DummyDataRequest.ProtoReflect.Descriptor instead.
 func (*DummyDataRequest) Descriptor() ([]byte, []int) {
-	return file_dummydata_proto_rawDescGZIP(), []int{0}
+	return file_api_proto_dummydata_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *DummyDataRequest) GetRequestId() string {
@@ -81,7 +81,7 @@ type DummyDataResponse struct {
 
 func (x *DummyDataResponse) Reset() {
 	*x = DummyDataResponse{}
-	mi := &file_dummydata_proto_msgTypes[1]
+	mi := &file_api_proto_dummydata_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -93,7 +93,7 @@ func (x *DummyDataResponse) String() string {
 func (*DummyDataResponse) ProtoMessage() {}
 
 func (x *DummyDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_dummydata_proto_msgTypes[1]
+	mi := &file_api_proto_dummydata_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -106,7 +106,7 @@ func (x *DummyDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DummyDataResponse.ProtoReflect.Descriptor instead.
 func (*DummyDataResponse) Descriptor() ([]byte, []int) {
-	return file_dummydata_proto_rawDescGZIP(), []int{1}
+	return file_api_proto_dummydata_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DummyDataResponse) GetId() string {
@@ -162,7 +162,7 @@ type Timestamp struct {
 
 func (x *Timestamp) Reset() {
 	*x = Timestamp{}
-	mi := &file_dummydata_proto_msgTypes[2]
+	mi := &file_api_proto_dummydata_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -174,7 +174,7 @@ func (x *Timestamp) String() string {
 func (*Timestamp) ProtoMessage() {}
 
 func (x *Timestamp) ProtoReflect() protoreflect.Message {
-	mi := &file_dummydata_proto_msgTypes[2]
+	mi := &file_api_proto_dummydata_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -187,7 +187,7 @@ func (x *Timestamp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Timestamp.ProtoReflect.Descriptor instead.
 func (*Timestamp) Descriptor() ([]byte, []int) {
-	return file_dummydata_proto_rawDescGZIP(), []int{2}
+	return file_api_proto_dummydata_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Timestamp) GetSeconds() int64 {
@@ -204,11 +204,11 @@ func (x *Timestamp) GetNanos() int32 {
 	return 0
 }
 
-var File_dummydata_proto protoreflect.FileDescriptor
+var File_api_proto_dummydata_proto protoreflect.FileDescriptor
 
-const file_dummydata_proto_rawDesc = "" +
+const file_api_proto_dummydata_proto_rawDesc = "" +
 	"\n" +
-	"\x0fdummydata.proto\x12\tdummydata\"1\n" +
+	"\x19api/proto/dummydata.proto\x12\tdummydata\"1\n" +
 	"\x10DummyDataRequest\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\tR\trequestId\"\xb8\x01\n" +
@@ -225,27 +225,27 @@ const file_dummydata_proto_rawDesc = "" +
 	"\x05nanos\x18\x02 \x01(\x05R\x05nanos2\xb1\x01\n" +
 	"\x10DummyDataService\x12K\n" +
 	"\fGetDummyData\x12\x1b.dummydata.DummyDataRequest\x1a\x1c.dummydata.DummyDataResponse\"\x00\x12P\n" +
-	"\x0fStreamDummyData\x12\x1b.dummydata.DummyDataRequest\x1a\x1c.dummydata.DummyDataResponse\"\x000\x01B6Z4github.com/alfredfrancis/dummy-grpc-server/dummydatab\x06proto3"
+	"\x0fStreamDummyData\x12\x1b.dummydata.DummyDataRequest\x1a\x1c.dummydata.DummyDataResponse\"\x000\x01B/Z-github.com/alfredfrancis/dummy-grpc-server/pbb\x06proto3"
 
 var (
-	file_dummydata_proto_rawDescOnce sync.Once
-	file_dummydata_proto_rawDescData []byte
+	file_api_proto_dummydata_proto_rawDescOnce sync.Once
+	file_api_proto_dummydata_proto_rawDescData []byte
 )
 
-func file_dummydata_proto_rawDescGZIP() []byte {
-	file_dummydata_proto_rawDescOnce.Do(func() {
-		file_dummydata_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_dummydata_proto_rawDesc), len(file_dummydata_proto_rawDesc)))
+func file_api_proto_dummydata_proto_rawDescGZIP() []byte {
+	file_api_proto_dummydata_proto_rawDescOnce.Do(func() {
+		file_api_proto_dummydata_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_api_proto_dummydata_proto_rawDesc), len(file_api_proto_dummydata_proto_rawDesc)))
 	})
-	return file_dummydata_proto_rawDescData
+	return file_api_proto_dummydata_proto_rawDescData
 }
 
-var file_dummydata_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_dummydata_proto_goTypes = []any{
+var file_api_proto_dummydata_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_api_proto_dummydata_proto_goTypes = []any{
 	(*DummyDataRequest)(nil),  // 0: dummydata.DummyDataRequest
 	(*DummyDataResponse)(nil), // 1: dummydata.DummyDataResponse
 	(*Timestamp)(nil),         // 2: dummydata.Timestamp
 }
-var file_dummydata_proto_depIdxs = []int32{
+var file_api_proto_dummydata_proto_depIdxs = []int32{
 	2, // 0: dummydata.DummyDataResponse.created_at:type_name -> dummydata.Timestamp
 	0, // 1: dummydata.DummyDataService.GetDummyData:input_type -> dummydata.DummyDataRequest
 	0, // 2: dummydata.DummyDataService.StreamDummyData:input_type -> dummydata.DummyDataRequest
@@ -258,26 +258,26 @@ var file_dummydata_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_dummydata_proto_init() }
-func file_dummydata_proto_init() {
-	if File_dummydata_proto != nil {
+func init() { file_api_proto_dummydata_proto_init() }
+func file_api_proto_dummydata_proto_init() {
+	if File_api_proto_dummydata_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_dummydata_proto_rawDesc), len(file_dummydata_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_proto_dummydata_proto_rawDesc), len(file_api_proto_dummydata_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_dummydata_proto_goTypes,
-		DependencyIndexes: file_dummydata_proto_depIdxs,
-		MessageInfos:      file_dummydata_proto_msgTypes,
+		GoTypes:           file_api_proto_dummydata_proto_goTypes,
+		DependencyIndexes: file_api_proto_dummydata_proto_depIdxs,
+		MessageInfos:      file_api_proto_dummydata_proto_msgTypes,
 	}.Build()
-	File_dummydata_proto = out.File
-	file_dummydata_proto_goTypes = nil
-	file_dummydata_proto_depIdxs = nil
+	File_api_proto_dummydata_proto = out.File
+	file_api_proto_dummydata_proto_goTypes = nil
+	file_api_proto_dummydata_proto_depIdxs = nil
 }
